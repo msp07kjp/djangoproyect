@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from .models import Proyecto, Task
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404, redirect
+from .forms import CreateNewTask
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -14,5 +16,26 @@ def task(request):
     #task = get_object_or_404(Task, id=id)
     tasks= Task.objects.all()
     return render(request, 'task.html', {'tasks': tasks})
+def create_task(request):
+    if request.method == 'POST':
+        form = CreateNewTask(request.POST)
+        if form.is_valid():
+            proyecto_id = 1
+            nombre = form.cleaned_data['nombre']
+            descripcion = form.cleaned_data['descripcion']
+            fecha_creacion = form.cleaned_data['fecha_creacion']
+            fecha_entrega = form.cleaned_data['fecha_entrega']
+            estado = form.cleaned_data['estado']
+            hecho = form.cleaned_data['hecho']
+            t = Task(proyecto_id=proyecto_id,nombre=nombre, descripcion=descripcion, fecha_creacion=fecha_creacion, fecha_entrega=fecha_entrega, estado=estado, hecho=hecho)
+            t.save()
+            return redirect('/task/')
+    else:
+        return render(request, 'crud/create_task.html', {
+        'form': CreateNewTask()
+        }
+    )
+
+
 def hello(request,username):
     return HttpResponse("<h1>hello desde Django %s</h1>" % username)
