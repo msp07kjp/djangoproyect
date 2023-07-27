@@ -20,7 +20,13 @@
 
   <div class="card-body">
     <h1>Task</h1>
-    </div>
+    <p>
+      {% for task in tasks %}
+      <h1>
+        {{ task.nombre}}
+      </h1>
+      {% endfor %}
+    </p>
   <footer>
     <!-- place footer here -->
   </footer>

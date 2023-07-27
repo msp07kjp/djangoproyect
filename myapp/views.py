@@ -12,6 +12,7 @@ def proyect(request):
 def task(request):
     #task= Task.objects.get(id=id)
     #task = get_object_or_404(Task, id=id)
-    return render(request, 'task.html')
+    tasks= Task.objects.all()
+    return render(request, 'task.html', {'tasks': tasks})
 def hello(request,username):
     return HttpResponse("<h1>hello desde Django %s</h1>" % username)

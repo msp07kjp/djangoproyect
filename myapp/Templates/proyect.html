@@ -21,7 +21,13 @@
   <div class="card-body">
     <h1>Proyect</h1>
     <p>
-      {{proyects}}
+      {% for proyect in proyects %}
+      <h1>
+
+        {{ proyect.nombre}}
+      </h1>
+      
+      {% endfor %}
     </p>
     </div>
   <footer>
