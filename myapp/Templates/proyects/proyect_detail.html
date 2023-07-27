@@ -1,0 +1,15 @@
+{% extends "Layouts/base.html"%}
+{% block titulo %} Proyecto {% endblock %}
+
+{% block contenido %}
+<div class="card-body">
+  <h1 class="card-title">Proyecto</h1>
+  <h2 class="card-title">{{proyect}}</h2>
+    {% for task in tasks %}
+    <div>
+        <p class="card-text">{{task.nombre}}</p>
+    </div>
+    {% endfor %}
+  
+  </div>
+{% endblock %}

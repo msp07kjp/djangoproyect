@@ -52,6 +52,17 @@ def create_proyect(request):
         'form': CreateNewProyect()
         }
     )
+def proyect_detail(request, id):
+    proyect = get_object_or_404(Proyecto, id=id)
+    tasks = Task.objects.filter(proyecto_id=id)
+    return render(request, 'proyects/proyect_detail.html', {
+        'proyect': proyect,
+        'tasks': tasks
+        }
+    )
+def task_detail(request, id):
+    task = get_object_or_404(Task, id=id)
+    return render(request, 'tasks/task_detail.html', {'task': task})
 
 def hello(request,username):
     return HttpResponse("<h1>hello desde Django %s</h1>" % username)

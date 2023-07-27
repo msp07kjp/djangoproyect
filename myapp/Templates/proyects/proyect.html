@@ -5,10 +5,12 @@
   <h1>Proyect</h1>
   <p>
     {% for proyect in proyects %}
-    <h1>
+    <a href="{% url 'proyect_detail' proyect.id %}">
+      <h1>
+        {{ proyect.nombre}}
+      </h1>
 
-      {{ proyect.nombre}}
-    </h1>
+    </a>
     
     {% endfor %}
   </p>
