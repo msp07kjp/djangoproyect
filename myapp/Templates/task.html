@@ -19,12 +19,30 @@
   </header>
 
   <div class="card-body">
-    <h1>Task</h1>
+    {# TODO: Este es un comentario #}
     <p>
       {% for task in tasks %}
       <h1>
-        {{ task.nombre}}
+        Task {{ task.id}}
       </h1>
+      <p>
+        {{ task.nombre}}
+      </p>
+    <p>
+      {{ task.descripcion}}
+    </p>
+      <p>
+        {{ task.fecha}}
+      </p>
+      <p>
+        {{ task.estado}}
+      </p>
+      {% if task.hecho == False %}
+      <p> Tarea Pendiente</p>
+      {% else %}
+      <p> Tarea Realizada</p>
+      {% endif %}
+      
       {% endfor %}
     </p>
   <footer>

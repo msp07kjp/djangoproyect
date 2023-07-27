@@ -18,5 +18,6 @@ class Task(models.Model):
     fecha_creacion = models.DateField()
     fecha_entrega = models.DateField()
     estado = models.CharField(max_length=20)
+    hecho = models.BooleanField(default=False)
     def __str__(self):
         return self.nombre+' - '+self.proyecto.nombre
