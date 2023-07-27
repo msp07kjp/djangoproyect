@@ -5,6 +5,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('hello/<str:username>', views.hello, name='hello'),
     path('proyect/', views.proyect, name='proyect'),
-    path('task/<int:id>', views.task, name='task'),
+    path('task/', views.task, name='task'),
 
 ]
