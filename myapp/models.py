@@ -19,4 +19,4 @@ class Task(models.Model):
     fecha_entrega = models.DateField()
     estado = models.CharField(max_length=20)
     def __str__(self):
-        return self.nombre
+        return self.nombre+' - '+self.proyecto.nombre
