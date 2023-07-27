@@ -29,7 +29,7 @@ def create_task(request):
             hecho = form.cleaned_data['hecho']
             t = Task(proyecto_id=proyecto_id,nombre=nombre, descripcion=descripcion, fecha_creacion=fecha_creacion, fecha_entrega=fecha_entrega, estado=estado, hecho=hecho)
             t.save()
-            return redirect('/task/')
+            return redirect('task')
     else:
         return render(request, 'tasks/create_task.html', {
         'form': CreateNewTask()
@@ -46,7 +46,7 @@ def create_proyect(request):
             estado = form.cleaned_data['estado']
             p = Proyecto(nombre=nombre, descripcion=descripcion, fecha_creacion=fecha_creacion, fecha_entrega=fecha_entrega, estado=estado)
             p.save()
-            return redirect('/proyect/')
+            return redirect('proyect')
     else:
         return render(request, 'proyects/create_proyectos.html', {
         'form': CreateNewProyect()
